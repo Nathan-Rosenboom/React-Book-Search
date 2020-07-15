@@ -6,7 +6,7 @@ const bookSchema = new Schema({
         type: String,
         required: true,
     },
-    author: {
+    authors: {
         type: [String],
         required: true,
     },
@@ -25,6 +25,6 @@ const bookSchema = new Schema({
     }
 });
 
-const Book = mogoose.model("Book")
+const Book = mogoose.model("Book", bookSchema);
 
 module.exports Book;
