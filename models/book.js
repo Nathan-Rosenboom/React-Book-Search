@@ -27,4 +27,4 @@ const bookSchema = new Schema({
 
 const Book = mogoose.model("Book", bookSchema);
 
-module.exports Book;
+module.exports = Book;
