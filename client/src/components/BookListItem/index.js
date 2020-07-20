@@ -11,13 +11,14 @@ export default function BookListItem({ title, description, link, authors, image,
                 <Col>
                 {onView && <Button variant = "primary">View</Button>}
                 {onSave && <Button variant = "secondary">Save</Button>}
+                {onDelete && (
                 <Button onCLick ={onDelete} variant = "danger">Delete</Button>
-
+                )}
                 </Col>
             </Row>
             <Row>
                 <Col>
-                <p>{link}</p>
+                <a href={`${link}`}>View on google books</a>
                 </Col>
             </Row>
             <Row>
@@ -29,8 +30,6 @@ export default function BookListItem({ title, description, link, authors, image,
                 <Col xs={2}>
                 <Image src={image} alt="Book cover"/>
                 </Col>
-            </Row>
-            <Row>
                 <Col>
                 <p>{description}</p>
                 </Col>

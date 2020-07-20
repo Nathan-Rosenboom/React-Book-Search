@@ -6,7 +6,7 @@ export default function SearchInput({ search, onSearchChange, onSearch }) {
     <Form onSubmit={onSearch}>
       <Form.Group controlId="book-title">
         <Form.Label>Book</Form.Label>
-        <Form.Control value={search} placeholder="Enter book" onChange={evt = onSearchChange(evt.target.value)}/>
+        <Form.Control value={search} placeholder="Enter book" onChange={evt => onSearchChange(evt.target.value)}/>
       </Form.Group>
       <Button variant="primary" type="submit">
           Search

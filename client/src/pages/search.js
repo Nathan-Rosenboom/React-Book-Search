@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
+import { Row, Col } from 'react-bootstrap';
 import SearchInput from "../components/SearchInput";
 import BookList from "../components/BookList";
-import { Row, Col } from 'react-bootstrap';
 import API from "../utils/api";
 
 export default function Search() {
@@ -17,21 +17,21 @@ export default function Search() {
             description: book.volumeInfo.description,
             authors: book.volumeInfo.authors,
             image: book.volumeInfo.imageLinks.thumbnail,
-            link: book.volumeInfo.infoLink
+            link: book.volumeInfo.infoLink,
             
-        }))
+        }));
         
-        setBooks(books)
+        setBooks(books);
     }
     return (
         <>
         <Row>
-            <Col>Search</Col>
-            <SearchInput search={search} onSearchChange={setSearch}/>
+            <Col><h1>Google Books Search</h1></Col>
+            <SearchInput search={search} onSearchChange={setSearch} onSearch={onSearch}/>
         </Row>
         <Row>
             <Col>
-            <BookList books={[]}/>
+            <BookList books={books}/>
             </Col>
         </Row>
         </>
