@@ -9,8 +9,13 @@ export default function BookListItem({ title, description, link, authors, image,
                     <h2>{title}</h2>
                 </Col>
                 <Col>
-                {onView && <Button variant = "primary">View</Button>}
-                {onSave && <Button variant = "secondary">Save</Button>}
+                {link && <Button as="a" variant = "primary" target="_blank" href={link}>View</Button>}
+                {onSave && (
+                <Button variant = "secondary" onClick={() => {
+                    onSave({title, description, link, authors, image});
+                }}>Save
+                </Button>
+                )}
                 {onDelete && (
                 <Button onCLick ={onDelete} variant = "danger">Delete</Button>
                 )}
@@ -18,12 +23,7 @@ export default function BookListItem({ title, description, link, authors, image,
             </Row>
             <Row>
                 <Col>
-                <a href={`${link}`}>View on google books</a>
-                </Col>
-            </Row>
-            <Row>
-                <Col>
-                <p>{authors && authors.join(' ')}</p>
+                <p>{authors && authors.join(', ')}</p>
                 </Col>
             </Row>
             <Row>

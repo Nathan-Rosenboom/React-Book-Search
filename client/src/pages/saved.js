@@ -8,13 +8,13 @@ export default function Search() {
     const [search, setSearch] = useState('');
     const [books, setBooks] = useState([]);
 
-    const onSave = async (book) => {
-        API.saveBook(book)
+    const onDelete = async (book) => {
+        API.deleteBook(book)
     }
     
     const onSearch = async (evt) => {
         evt.preventDefault();
-        const results = await API.searchBooks(search);
+        
         const books = results.items.map((book) => ({
             id: book.id,
             title: book.volumeInfo.title,
@@ -22,7 +22,7 @@ export default function Search() {
             authors: book.volumeInfo.authors,
             image: book.volumeInfo.imageLinks.thumbnail,
             link: book.volumeInfo.infoLink,
-            onSave,
+            onDelete,
             
         }));
         
@@ -31,8 +31,7 @@ export default function Search() {
     return (
         <>
         <Row>
-            <Col><h1>Google Books Search</h1></Col>
-            <SearchInput search={search} onSearchChange={setSearch} onSearch={onSearch}/>
+            <Col><h1>Saved Books</h1></Col>
         </Row>
         <Row>
             <Col>

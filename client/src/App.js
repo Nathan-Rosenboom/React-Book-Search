@@ -5,6 +5,7 @@ import "bootstrap/dist/css/bootstrap.min.css";
 import "./App.css";
 
 import Search from "./pages/search";
+import Saved from "./pages/saved";
 
 function App() {
   return (
@@ -14,6 +15,9 @@ function App() {
           <Switch>
             <Route exact path={["/", "/search"]}>
               <Search />
+            </Route>
+            <Route exact path={"/saved"}>
+              <Saved />
             </Route>
           </Switch>
         </div>
